@@ -1,0 +1,8 @@
+{
+	"port":3000,
+	"mongoDB":{
+		"host": "localhost",
+		"name": "notas"
+	}
+
+}
