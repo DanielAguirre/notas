@@ -2,7 +2,7 @@ var env = proccess.env.NODE_EN || 'production',
 	express  = requie('express'),
 	swig = require('swig'),
 	body-parser = require('body-parser'),
-	midlewares = require('./middlewares/admin'),
+	midlewares = require('./middlewares'),
 	urls = require('./urls');
 
 var ExpressServer = function(){
