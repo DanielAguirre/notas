@@ -1,8 +1,8 @@
-var env = proccess.env.NODE_EN || 'production',
-	express  = requie('express'),
+var env = process.env.NODE_EN || 'production',
+	express  = require('express'),
 	swig = require('swig'),
-	body-parser = require('body-parser'),
-	midlewares = require('./middlewares'),
+	bodyParser = require('body-parser'),
+	middlewares = require('./middlewares'),
 	urls = require('./urls');
 
 var ExpressServer = function(){
@@ -24,7 +24,7 @@ var ExpressServer = function(){
 
 	this.expressServer.engine('html',swig.renderFile);
 	this.expressServer.set('view engine','html');
-	this.expressServer..set('views',__dirname+'/website/views');
+	this.expressServer.set('views',__dirname+'/website/views');
 
 	for(var url in urls) {
 		this.expressServer.use(url,urls[url]);

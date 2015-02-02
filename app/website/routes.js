@@ -1,5 +1,5 @@
 var express = require('express');
-	HomeController = require('./controllers/homecontroller'),
+	HomeController = require('./controllers/homecontroller');
 
 var router = express.Router();
 
