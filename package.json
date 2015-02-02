@@ -1,0 +1,19 @@
+{
+  "name": "notas",
+  "version": "0.0.1",
+  "description": "Apliaccion para hacer notas",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanielAguirre/notas.git"
+  },
+  "author": "Daniel Alejandro Aguirre Linares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielAguirre/notas/issues"
+  },
+  "homepage": "https://github.com/DanielAguirre/notas"
+}
