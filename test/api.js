@@ -3,7 +3,8 @@
 var request = require('supertest-as-promised'),
 	api = require('../index'),
 	host = process.env.API_TEST_HOST || api,
-	url='/api/notas';
+	url='/api/notas',
+	_ = require('lodash');
 
 var data = {
 		'nota':{
@@ -102,27 +103,27 @@ describe('recurso /notas',function(){
 				.set('Accept','application/json')
 				.send(data1)
 				.expect(201)
+				.expect('Content-Type', /application\/json/)
 				.then(function(res){
 					id1 = res.body.nota._id;
 
-					return 
-						request
-							.post(url)
-							.set('Accept','application/json')
-							.send(data1)
-							.expect(201)
+					return 	request.post(url)
+								.set('Accept','application/json')
+								.send(data2)
+								.expect(201)
+								.expect('Content-Type', /application\/json/)
 				}, done)
-				.then(function(res){
+				.then(function(res){					
 					id2 = res.body.nota._id;
 
 					return request.get(url)
-					.send()
-					.expect(200)
-					.expect('Content-Type', /application\/json/)					
+							.send()
+							.expect(200)
+							.expect('Content-Type', /application\/json/)
 				}, done)
 				.then(function(res){
 					var body = res.body;
-					expect(body).to.have.property('notas')					
+					expect(body).to.have.property('notas');
 					expect(body.notas).to.be.an('array')
 						.and.to.have.length.above(0);
 
@@ -135,14 +136,14 @@ describe('recurso /notas',function(){
 					expect(nota1).to.have.property("description", "Introducion a clase");
 					expect(nota1).to.have.property('type', 'js');
 					expect(nota1).to.have.property('body','soy el cuerpo del json');
-					expect(nota1).to.have.property('id',id1);
+					expect(nota1).to.have.property('_id',id1);
 
 					expect(nota2).to.have.property('title', "Mejorando.la #node-pro");
 					expect(nota2).to.have.property("description", "Ya casi se acaba esta clase");
 					expect(nota2).to.have.property('type', 'ruby');
 					expect(nota2).to.have.property('body','wohooo');
-					expect(nota2).to.have.property('id',id2);
-					done()	
+					expect(nota2).to.have.property('_id',id2);
+					done();
 				}, done)
 		})
 	})
@@ -171,7 +172,7 @@ describe('recurso /notas',function(){
 							.expect('Content-Type',/application\/json/)
 				},done)
 				.then(function(res){
-					var nota = res.body.nota;					
+					var nota = res.body.nota;
 					//Propiedades					
 					expect(nota).to.have.property('title', "Juan Pablo no Sabe escribir ejecucción");
 					expect(nota).to.have.property("description", "Introducion a clase");
@@ -190,7 +191,7 @@ describe('recurso /notas',function(){
 				.set(data)
 				.expect(201)
 				.then(function(res){
-					id = res.body.nota._id;					
+					id = res.body.nota._id;
 					return request.delete(url+'/'+id)
 						.set('Accept','application/json')
 						.expect(204)
@@ -201,7 +202,6 @@ describe('recurso /notas',function(){
 						
 				}, done)
 				.then(function(res){
-					console
 					done();
 				}, done)
 		})

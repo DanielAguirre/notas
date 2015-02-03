@@ -18,7 +18,16 @@ Nota.find = function(id,callback) {
 			callback(data);
 		})
 }
-	
+
+Nota.findAll = function(callback){
+	modelNota
+		.find({})
+		.exec(function(err, data){
+			if(err) throw err;
+			callback(data);
+		})
+}
+
 Nota.update = function(id,nota,callback) {
 	modelNota.findOneAndUpdate(
 		{_id:id},
@@ -37,7 +46,6 @@ Nota.update = function(id,nota,callback) {
 Nota.delete  = function(id, callback) {	
 	modelNota.remove({_id:id},function(err,data){
 		if(err) throw err;
-		console.log("data:",data);
 		callback()
 	})
 

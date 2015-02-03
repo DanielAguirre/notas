@@ -2,6 +2,15 @@
 
 var ApiController = function(){}
 
+
+ApiController.getAll = function(req, res){
+
+	modelNota.findAll(function(data){
+		res.
+			json({notas:data})
+	});
+}
+
 ApiController.save = function(req,res) {
 	var nota = req.body.nota;
 	
@@ -9,6 +18,7 @@ ApiController.save = function(req,res) {
 	modelNota.save(nota,function(data){
 		res
 		.status(201)
+		.set('Content-Type','application/json')
 		.json({nota:data})
 	})
 }

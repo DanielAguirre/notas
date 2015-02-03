@@ -3,6 +3,8 @@ var express = require('express'),
 
 var router = express.Router();
 
+router.get('/notas/',apicontroller.getAll)
+
 router
 	.route('/notas/:id?')
 	.all(function(req,res,next){
