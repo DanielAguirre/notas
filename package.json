@@ -21,5 +21,11 @@
     "express": "^4.11.2",
     "mongoose": "^3.8.22",
     "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0",
+    "supertest": "^0.15.0",
+    "supertest-as-promised": "^1.0.0"
   }
 }
