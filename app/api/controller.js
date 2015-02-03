@@ -1,4 +1,4 @@
-var modelNota = require('./model/nota')
+	var modelNota = require('./model/nota')
 
 var ApiController = function(){}
 
@@ -13,9 +13,16 @@ ApiController.save = function(req,res) {
 	})
 }
 
-ApiController.get = function(req,res) {
+ApiController.get = function(req,res, next) {
 	var id = req.params.id
 	modelNota.find(id,function(data){
+		
+		if(!data){
+			return res
+					.status(400)
+					.send();
+		}
+
 		res.
 			json({nota:data})
 	})
@@ -27,6 +34,14 @@ ApiController.update = function(req,res) {
 	modelNota.update(id,nota,function(data){
 		res
 			.json({nota:nota})
+	})
+}
+ApiController.delete = function(req,res){
+	var id = req.params.id;
+	modelNota.delete(id, function(){
+		res
+			.status(204)
+			.send();
 	})
 }
 

@@ -74,6 +74,77 @@ describe('recurso /notas',function(){
 					done();
 				}, done)
 		})
+		it('Deberia obtener una lista de todas las notas',function(done){
+			var id1, id2;
+
+			var data1 = {
+				'nota':{
+					'title': "Mejorando.la #node-pro",
+					"description": "Introducion a clase",
+					"type":"js",
+					"body": "soy el cuerpo del json"
+				}
+			};
+
+
+			var data2 = {
+				'nota':{
+					'title': "Mejorando.la #node-pro",
+					"description": "Ya casi se acaba esta clase",
+					"type":"ruby",
+					"body": "wohooo"
+				}
+			};
+
+
+			request
+				.post(url)
+				.set('Accept','application/json')
+				.send(data1)
+				.expect(201)
+				.then(function(res){
+					id1 = res.body.nota._id;
+
+					return 
+						request
+							.post(url)
+							.set('Accept','application/json')
+							.send(data1)
+							.expect(201)
+				}, done)
+				.then(function(res){
+					id2 = res.body.nota._id;
+
+					return request.get(url)
+					.send()
+					.expect(200)
+					.expect('Content-Type', /application\/json/)					
+				}, done)
+				.then(function(res){
+					var body = res.body;
+					expect(body).to.have.property('notas')					
+					expect(body.notas).to.be.an('array')
+						.and.to.have.length.above(0);
+
+					var notas = body.notas
+
+					var nota1 = _.find(notas,{_id:id1})
+					var nota2 = _.find(notas,{_id:id2})
+
+					expect(nota1).to.have.property('title', "Mejorando.la #node-pro");
+					expect(nota1).to.have.property("description", "Introducion a clase");
+					expect(nota1).to.have.property('type', 'js');
+					expect(nota1).to.have.property('body','soy el cuerpo del json');
+					expect(nota1).to.have.property('id',id1);
+
+					expect(nota2).to.have.property('title', "Mejorando.la #node-pro");
+					expect(nota2).to.have.property("description", "Ya casi se acaba esta clase");
+					expect(nota2).to.have.property('type', 'ruby');
+					expect(nota2).to.have.property('body','wohooo');
+					expect(nota2).to.have.property('id',id2);
+					done()	
+				}, done)
+		})
 	})
 	describe('PUT', function(){
 		it('deberia actualizar una nota existente', function(done){
@@ -119,15 +190,19 @@ describe('recurso /notas',function(){
 				.set(data)
 				.expect(201)
 				.then(function(res){
-					id = res.body.nota.id;
+					id = res.body.nota._id;					
 					return request.delete(url+'/'+id)
 						.set('Accept','application/json')
 						.expect(204)
 				},done)
 				.then(function(res){
-					var id = re.body.nota.id;
-						return require.get(url+'/'+id)
-						.expect(400)						
+					return request.get(url+'/'+id)
+						.expect(400)
+						
+				}, done)
+				.then(function(res){
+					console
+					done();
 				}, done)
 		})
 
