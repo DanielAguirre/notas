@@ -41,7 +41,7 @@ describe('recurso /notas',function(){
 					expect(nota).to.have.property("description", "Introducion a clase");
 					expect(nota).to.have.property('type', 'js');
 					expect(nota).to.have.property('body','soy el cuerpo del json');
-					expect(nota).to.have.property('id');
+					expect(nota).to.have.property('_id');
 					done();
 				});
 		})

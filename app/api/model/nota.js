@@ -9,3 +9,5 @@ Nota.save = function(data, callback){
 			callback(data);
 		})
 }
+
+module.exports = Nota;
