@@ -21,4 +21,13 @@ ApiController.get = function(req,res) {
 	})
 }
 
+ApiController.update = function(req,res) {
+	var id = req.params.id;
+	var nota = req.body;	
+	modelNota.update(id,nota,function(data){
+		res
+			.json({nota:nota})
+	})
+}
+
 module.exports = ApiController;

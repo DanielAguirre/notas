@@ -18,5 +18,20 @@ Nota.find = function(id,callback){
 			callback(data);
 		})
 }
+	
+Nota.update = function(id,nota,callback){
+	modelNota.findOneAndUpdate(
+		{_id:id},
+		{
+			title: nota.title,
+			description:nota.description,
+			type:nota.type,
+			body:nota.body
+		}, 
+		function(err,data){
+			if(err) throw err;
+			callback(data);	
+		})
+}
 
 module.exports = Nota;

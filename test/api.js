@@ -94,7 +94,9 @@ describe('recurso /notas',function(){
 					nota.title = 'Juan Pablo no Sabe escribir ejecucción';
 					return request
 							.put(url+'/'+id)
+							.send(nota)
 							.expect(200)
+
 							.expect('Content-Type',/application\/json/)
 				},done)
 				.then(function(res){
@@ -104,7 +106,7 @@ describe('recurso /notas',function(){
 					expect(nota).to.have.property("description", "Introducion a clase");
 					expect(nota).to.have.property('type', 'js');
 					expect(nota).to.have.property('body','soy el cuerpo del json');
-					expect(nota).to.have.property('id',id);
+					expect(nota).to.have.property('_id',id);
 					done();
 				},done)
 		})
