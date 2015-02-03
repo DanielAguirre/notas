@@ -11,5 +11,6 @@ router
 		next();
 	})
 	.post(apicontroller.save)
+	.get(apicontroller.get)
 
 module.exports =router;

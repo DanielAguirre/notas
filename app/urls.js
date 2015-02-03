@@ -1,4 +1,4 @@
 module.exports={
 	'/': require('./website/routes'),
-	'/api/': require('./api/routes'),
+	'/api': require('./api/routes'),
 }
