@@ -83,8 +83,8 @@ describe('recurso /notas',function(){
 				.send(data)
 				.expect(201)
 				.then(function(res){
-					id= res.body.nota._id
-					return request.get('/api/notas/'+id)
+					id= res.body.nota._id;
+					return request.get(url+'/'+id)
 							.set('Accept', 'application/json')
 							.send()
 				}, done)
@@ -110,5 +110,26 @@ describe('recurso /notas',function(){
 					done();
 				},done)
 		})
+	})
+	describe('DELETE', function(){
+		it('deberia eliminar una nota existente', function(done){
+			var id;
+
+			request.post(url)
+				.set(data)
+				.expect(201)
+				.then(function(res){
+					id = res.body.nota.id;
+					return request.delete(url+'/'+id)
+						.set('Accept','application/json')
+						.expect(204)
+				},done)
+				.then(function(res){
+					var id = re.body.nota.id;
+						return require.get(url+'/'+id)
+						.expect(400)						
+				}, done)
+		})
+
 	})
 })
