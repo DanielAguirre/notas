@@ -1,5 +1,6 @@
 var express = require('express'),
-	apicontroller = require('./controller.js');
+	apicontroller = require('./controller');
+
 var router = express.Router();
 
 router
@@ -10,3 +11,5 @@ router
 		next();
 	})
 	.post(apicontroller.save)
+
+module.exports =router;
