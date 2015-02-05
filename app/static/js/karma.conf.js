@@ -15,6 +15,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+        'vendors/angular.js',
+        'vendors/angular-mocks.js',
+        'app.js',
+        'nota/NotaController.js'
     ],
 
 
