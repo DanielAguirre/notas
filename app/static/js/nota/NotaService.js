@@ -1,6 +1,27 @@
 (function(){
 	var NotaService = function($resource){
-		return $resource('/api/notas/:id',{id:'@id'});
+		var resource = $resource('/api/notas/:id',{id:'@id'});
+		this.getAll = function(callback){
+			resource
+				.get()
+				.$promise.then(function(data){
+					callback( data.notas);
+				});
+		}
+		this.getNote = function(id,callback){
+			resource
+				.get({id:id})
+				.$promise.then(function(data){
+					callback(data.nota);
+				})
+		}
+		this.delete = function(id){
+			resource
+				.remove({id:id})
+				.$promise.then(function(data){
+					console.log("delete",data);
+				})
+		}
 	}
 
 	angular.module('notas.service',[])
