@@ -5,7 +5,7 @@
 		<td>{$ nota.description $}</td>		
 		<td>
 			<a href='#/editar/{$nota._id$}'>Editar</a>
-			<button>Eliminar</button>
+			<button ng-click="delete(nota._id)">Eliminar</button>
 		</td>
 	</tr>
 </table>

@@ -8,13 +8,18 @@
 					$scope.notas = data.notas;
 				});
 		}
-		$scope.getNote = function(){
-			console.log($routeParams)
+		$scope.getNote = function() {
 			NotaService
 				.get({id:$routeParams.id})
 				.$promise.then(function(data){
 					$scope.nota=data.nota;
-					console.log(data.nota);
+				})
+		}
+		$scope.delete = function(id){
+			NotaService
+				.remove({id:id})
+				.$promise.then(function(data){
+					console.log("delete",data);
 				})
 		}
 	}
