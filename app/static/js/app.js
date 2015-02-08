@@ -19,5 +19,14 @@
                         }
                     }
     			})
+                .when('/nueva',{
+                    templateUrl:'views/nueva-nota.html',
+                    controller: 'NotaController',
+                    resolve:{
+                        notas: function(){
+                            return null;
+                        }
+                    }
+                })
 		}]);
 }());

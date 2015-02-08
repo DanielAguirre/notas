@@ -1,7 +1,11 @@
 <h1>Lista de notas</h1>
 <table >
-<tr ng-repeat='nota in notas'>
-	<nota-directive></nota-directive>
-</tr>
-	
+	<tr ng-repeat='nota in notas'>	
+		<td>{$ nota.title $} hola</td>
+		<td>{$ nota.description $}</td>		
+		<td>
+			<button>Editar</button>
+			<button>Eliminar</button>
+		</td>
+	</tr>
 </table>

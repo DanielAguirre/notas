@@ -1,12 +1,13 @@
 (function(){
-	var NotaController = function($scope,notas){
-		notas.$promise.then(function(data){
-			$scope.notas = data.notas;
-		}).catch(function(err){
-			throw err;
-		})
-					
-		console.log(notas.$promise)
+	var NotaController = function($scope, notas){
+		if(notas){
+			notas.$promise.then(function(data){
+				$scope.notas = data.notas;			
+			}).catch(function(err){
+				throw err;
+			});
+		}
+
 		$scope.getAll = function(){
 			return NotaService.get();
 		}

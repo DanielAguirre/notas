@@ -1,14 +1,10 @@
 describe('Rutas',function(){
-	beforeEach(module('notas'));
-
 	var location ,route,rootScope;
+	beforeEach(module('notas'));
+	/*beforeEach(module('ngRoute',function($resource){
 
-	beforeEach(
-		inject(_$location_, _$route_, _$rootScope_){
-			location = _$location;
-			route = _$route_;
-			rootScope = _$rootScope_;
-		});
+	}))*/	
+
 	describe('index route',function(){
 		beforeEach(inject(
 			function($httpBackend){
@@ -19,6 +15,6 @@ describe('Rutas',function(){
 			rooStcope.$digest();
 			expect(route.current.controller).toBe('HomeController')
 		})
-	})
+	;})
 
 });
