@@ -1,19 +1,25 @@
 (function(){
-	var NotaController = function($scope, notas){
-		if(notas){
-			notas.$promise.then(function(data){
-				$scope.notas = data.notas;			
-			}).catch(function(err){
-				throw err;
-			});
-		}
+	var NotaController = function($scope,$route, $routeParams, NotaService){		
 
 		$scope.getAll = function(){
-			return NotaService.get();
+			NotaService
+				.get()
+				.$promise.then(function(data){
+					$scope.notas = data.notas;
+				});
+		}
+		$scope.getNote = function(){
+			console.log($routeParams)
+			NotaService
+				.get({id:$routeParams.id})
+				.$promise.then(function(data){
+					$scope.nota=data.nota;
+					console.log(data.nota);
+				})
 		}
 	}
 
 	angular
 		.module('notas.controller',[])
-		.controller('NotaController',['$scope','notas',NotaController]);
+		.controller('NotaController',['$scope','$route','$routeParams','NotaService',NotaController]);
 }())

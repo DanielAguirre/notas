@@ -6,27 +6,21 @@
         'notas.service',
         'notas.directive']).
 		config(['$interpolateProvider', '$routeProvider',function($interpolateProvider, $routeProvider) {
-    		$interpolateProvider.startSymbol('{$');
+        	$interpolateProvider.startSymbol('{$');
     		$interpolateProvider.endSymbol('$}');
 
     		$routeProvider
     			.when('/',{
     				templateUrl:'views/notas.html',
-    				controller: 'NotaController',
-                    resolve: {
-                        notas: function(NotaService){
-                            return NotaService.get();
-                        }
-                    }
+    				controller: 'NotaController',                    
     			})
                 .when('/nueva',{
                     templateUrl:'views/nueva-nota.html',
                     controller: 'NotaController',
-                    resolve:{
-                        notas: function(){
-                            return null;
-                        }
-                    }
+                })
+                .when('/editar/:id',{
+                    templateUrl:'views/nueva-nota.html',
+                    controller: 'NotaController',
                 })
 		}]);
 }());
