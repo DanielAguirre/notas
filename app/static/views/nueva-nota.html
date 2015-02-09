@@ -1,11 +1,11 @@
 <form action="" ng-init="getNote()">
 	<label for="title">Titulo</label>
-	<input type="text" id="title" value='{$ nota.title $}'>
+	<input type="text" id="title" ng-model = 'nota.title' value='{$ nota.title $}' >
 	<label for="description">Descripcion</label>
-	<input type="text" id='description' value='{$ nota.description $}'>
+	<input type="text" id='description' ng-model = 'nota.description' value='{$ nota.description $}'>
 	<label for="type">Tipo</label>
-	<input type="text" id='type' value='{$ nota.type $}'>
-	<textarea name="" id="" cols="30" rows="10">{$ nota.body $}</textarea>
-	<input type="submit" value="Editar" ng-if=nota>
-	<input type="submit" value="Crear" ng-if=!nota>
+	<input type="text" id='type' ng-model = 'nota.type' value='{$ nota.type $}'>
+	<textarea name="" id="" cols="30" rows="10" ng-model = 'nota.body'>{$ nota.body $}</textarea>
+	<button ng-if=nota>Editar</button>
+	<button ng-if=!nota>Crear</button>
 </form>
