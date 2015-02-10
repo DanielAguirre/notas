@@ -1,11 +1,11 @@
-<h1>Lista de notas</h1>
+<h2>Lista de notas</h2>
 <table ng-init="getAll()">
 	<tr ng-repeat='nota in notas'>	
 		<td>{$ nota.title $} hola</td>
 		<td>{$ nota.description $}</td>		
 		<td>
-			<a href='#/editar/{$nota._id$}'>Editar</a>
-			<button ng-click="delete(nota._id)">Eliminar</button>
+			<a href='#/editar/{$nota._id$}' class='btn'>Editar</a>
+			<button ng-click="delete(nota._id)" class="btn btn-error">Eliminar</button>
 		</td>
 	</tr>
 </table>
