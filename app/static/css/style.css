@@ -182,29 +182,54 @@ th {
 body {
   background: #f9f9f9;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+}
 header {
-  background: #009688;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
   height: 150px;
+  background: #009688;
+  color: #fff;
   box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
 }
 header h1 {
   margin: 0;
 }
+header a {
+  text-decoration: none;
+}
+header a:visited {
+  color: #fff;
+}
 section.container {
+  position: relative;
+  top: -80px;
   margin: 0 15%;
   width: 70%;
   background: #fff;
   box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
 }
 section.container h2 {
-  padding: 10px;
-  height: 54px;
+  padding: 15px 15%;
+  margin: 0;
+  height: 34px;
   background: #3f51b5;
   box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
 }
 section.container table,
 section.container form {
-  margin: 0 15%;
+  margin: 0 11%;
   width: 70%;
 }
 section.container table tr {
@@ -213,7 +238,7 @@ section.container table tr {
 }
 section.container table tr .btn {
   padding: 6px;
-  height: 25px;
+  text-decoration: none;
 }
 section.container table tr .btn:hover {
   box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
@@ -227,9 +252,15 @@ section.container form textarea {
   width: 100%;
   border-width: 0 0 1px 0;
 }
+section.container form input:focus,
+section.container form textarea:focus,
+section.container form input:active,
+section.container form textarea:active {
+  border: none;
+  outline: 0;
+}
 section.container form .btn {
   padding: 6px;
-  height: 25px;
 }
 section.container form .btn:hover {
   box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
@@ -250,10 +281,16 @@ section.container form .btn:hover {
   parring-bottom: 0;
   parring-right: 1rem;
   parring-left: 1rem;
+  border-radius: 3px;
 }
-.btn-error {
+.btn-warning {
   background-color: #f44336;
+  color: #fff;
 }
-.btn-error:hover {
-  background-color: #f2291a;
+.btn-warning:hover {
+  background-color: #d32f2f;
+}
+.btn-primary {
+  background-color: #3f51b5;
+  color: #fff;
 }

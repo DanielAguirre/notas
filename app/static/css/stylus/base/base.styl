@@ -1,47 +1,65 @@
 body
 	background body--color
+	
+h1,h2,h3,h4,h5,h6
+	color title--color
+	
 header
-	background header--color
+	flexbox()
+	justify-content space-around
+	padding 15px
 	height 150px
+	background header--color
+	color white
 	shadow()
 	h1
 		margin 0
-		
+	a
+		text-decoration none
+		&:visited
+			color white
+
 section.container
-	//padding 10%
-	margin 0 15%	
+	position: relative;
+	top: -80px;
+	margin 0 15%
 	width 70%
 	background panel--color
 	shadow()
+	
 	h2
-		padding 10px
-		height 54px
+		padding 15px 15%
+		margin 0
+		height 34px
 		background tool-bar-color 
 		shadow()
+		
 	table,
 	form
-		margin 0 15%
+		margin 0 11%
 		width 70%
+		
 	table
 		tr
 			height 94px
 			border-bottom 1px solid #eee
 			.btn
 				padding 6px
-				height 25px
+				text-decoration none
 				&:hover
 					shadow()
-	form
+	form		
 		padding 5% 0
 		input,
 		textarea
 			padding-bottom 26px
 			width 100%
 			border-width: 0 0 1px 0;
-				
+			&:focus,
+			&:active
+				border none
+				outline 0
 		.btn
 			padding 6px
-			height 25px
 			&:hover
 				shadow()
-		

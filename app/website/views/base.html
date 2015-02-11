@@ -17,8 +17,9 @@
 <body>
 	<header>
 		<h1>Notas</h1>
+		<a href="#/nueva" ng-if="action.create">{$ action.create $}</a>
+		<a href="#/" ng-if="action.view">{$ action.view $}</a>
 	</header>
-	<a href="#/nueva">Crea nota</a>
 	<section class="container">
 		{% block content%} {%endblock%}
 	</section>
