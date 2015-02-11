@@ -21,6 +21,7 @@
 		<a href="#/" ng-if="action.view">{$ action.view $}</a>
 	</header>
 	<section class="container">
+	 	<input type="hidden" name="_csrf" value="	{{csrfToken}}">
 		{% block content%} {%endblock%}
 	</section>
 </body>

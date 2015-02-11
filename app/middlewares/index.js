@@ -1,3 +1,6 @@
 module.exports={	
-	static: require('./static')
+	static: require('./static'),
+	cookieparser: require('./cookieparser') ,
+	cors: require('./cors'),
+	errorhandler: require('./errorhandler')
 }
