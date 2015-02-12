@@ -4,7 +4,8 @@
         'ngResource',
         'notas.controller',
         'notas.service',
-        'notas.directive']).
+        'notas.directive',
+        'notas.factory']).
 		config(['$interpolateProvider', '$routeProvider',function($interpolateProvider, $routeProvider) {
         	$interpolateProvider.startSymbol('{$');
     		$interpolateProvider.endSymbol('$}');

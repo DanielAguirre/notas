@@ -6,9 +6,9 @@
 	<label for="type">Tipo</label>
 	<input type="text" id='type' placeholder='Tipo' ng-model = 'nota.type' value='{$ nota.type $}'>
 	<textarea name="" id="" cols="30" rows="10" ng-model = 'nota.body'>{$ nota.body $}</textarea>
-	<button ng-if=nota class="btn btn-primary">Editar</button>
-	<div class="buttons-section" ng-if=!nota>
+	<button ng-if=action.view class="btn btn-primary">Editar</button>
+	<div class="buttons-section" ng-if=action.create>
 		<button  class="btn btn-primary">Crear</button>
-		<button  class="btn ">Limpiar</button>
+		<div  class="btn " ng-click="clear_model()">Limpiar</div>
 	</div>
 </form>
