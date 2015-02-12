@@ -7,5 +7,8 @@
 	<input type="text" id='type' placeholder='Tipo' ng-model = 'nota.type' value='{$ nota.type $}'>
 	<textarea name="" id="" cols="30" rows="10" ng-model = 'nota.body'>{$ nota.body $}</textarea>
 	<button ng-if=nota class="btn btn-primary">Editar</button>
-	<button ng-if=!nota class="btn btn-primary">Crear</button>
+	<div class="buttons-section" ng-if=!nota>
+		<button  class="btn btn-primary">Crear</button>
+		<button  class="btn ">Limpiar</button>
+	</div>
 </form>

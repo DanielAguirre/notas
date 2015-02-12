@@ -16,6 +16,7 @@
 					$rootScope.action={view:"Ver notas"}
 				});
 		}
+		
 		$scope.delete = function(id){
 			NotaService.delete(id);
 		}

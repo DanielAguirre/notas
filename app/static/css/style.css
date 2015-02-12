@@ -259,6 +259,14 @@ section.container form textarea:active {
   border: none;
   outline: 0;
 }
+section.container form .buttons-section {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-end;
+}
 section.container form .btn {
   padding: 6px;
 }
@@ -282,6 +290,7 @@ section.container form .btn:hover {
   parring-right: 1rem;
   parring-left: 1rem;
   border-radius: 3px;
+  color: rgba(0,0,0,0.87);
 }
 .btn-warning {
   background-color: #f44336;
