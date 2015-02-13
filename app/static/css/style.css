@@ -232,6 +232,9 @@ section.container form {
   margin: 0 11%;
   width: 70%;
 }
+section.container table {
+  height: 1100px;
+}
 section.container table tr {
   height: 94px;
   border-bottom: 1px solid #eee;
@@ -273,6 +276,12 @@ section.container form .btn {
 section.container form .btn:hover {
   box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
 }
+section.container .buttons-section {
+  display: flex;
+  justify-content: center;
+  margin: 25px 11%;
+  border: none;
+}
 .btn {
   display: inline-block;
   line-height: 1.5;
@@ -285,10 +294,10 @@ section.container form .btn:hover {
   font-weight: bold;
   cursor: pointer;
   margin: 0;
-  parring-top: 0;
-  parring-bottom: 0;
-  parring-right: 1rem;
-  parring-left: 1rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 1rem;
+  padding-left: 1rem;
   border-radius: 3px;
   color: rgba(0,0,0,0.87);
 }

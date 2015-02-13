@@ -5,8 +5,8 @@
         'notas.controller',
         'notas.service',
         'notas.directive',
-        'notas.factory']).
-		config(['$interpolateProvider', '$routeProvider',function($interpolateProvider, $routeProvider) {
+        'notas.factory'])
+		.config(['$interpolateProvider', '$routeProvider',function($interpolateProvider, $routeProvider) {
         	$interpolateProvider.startSymbol('{$');
     		$interpolateProvider.endSymbol('$}');
 

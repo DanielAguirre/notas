@@ -20,7 +20,10 @@
 	<header>
 		<h1>Notas</h1>
 		<a href="#/nueva" ng-if="action.create">{$ action.create $}</a>
-		<a href="#/" ng-if="action.view">{$ action.view $}</a>
+		<div>
+			<a href="#/" ng-if="action.view">{$ action.view $}
+		</a>
+		</div>
 	</header>
 	<section class="container">
 	 	<input type="hidden" name="_csrf" value="	{{csrfToken}}">
