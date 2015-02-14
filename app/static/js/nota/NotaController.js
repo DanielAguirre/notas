@@ -1,7 +1,7 @@
 (function(){
 	var NotaController = function($scope,$rootScope,$route, $routeParams, NotaService, PaginateFactory) {	
 
-		$rootScope.action = {}
+		$rootScope.action = {};
 
 		$scope.getAll = function(){
 			NotaService
@@ -10,9 +10,8 @@
 					$scope.notas = $scope.all_notes.slice(0,10)
 					$scope.pagina=1;
 					$rootScope.action.create="Crear nota";
-
 				});
-		}
+		};
 
 		$scope.getNote = function() {
 			NotaService
@@ -24,20 +23,25 @@
 						$rootScope.action.edit=true;
 					}
 				});
-		}
+		};
+
+
+		$scope.update_note = function(){
+			$scope.nota.id = $routeParams.id;
+			NotaService.updateNote($scope.nota,function(nota){});
+		};
 
 		$scope.delete = function(id){
 			NotaService.delete(id);
-		}
+		};
 
 		$scope.clear_model= function(){
 			$scope.nota = null;
-			console.log($scope.nota);
-		}
+		};
 
 		$scope.paginate= function(pagina){
 			PaginateFactory.paginate($scope, pagina);
-		}
+		};
 	}
 
 	angular
