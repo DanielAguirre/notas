@@ -1,13 +1,15 @@
 (function(){
 	var NotaController = function($scope,$rootScope,$route, $routeParams, NotaService, PaginateFactory) {	
 
+		$rootScope.action = {}
+
 		$scope.getAll = function(){
 			NotaService
 				.getAll(function(notas){				
 					$scope.all_notes = notas;					
 					$scope.notas = $scope.all_notes.slice(0,10)
 					$scope.pagina=1;
-					$rootScope.action={ create:"Crear nota"}
+					$rootScope.action.create="Crear nota";
 
 				});
 		}
@@ -16,7 +18,11 @@
 			NotaService
 				.getNote($routeParams.id,function(nota){
 					$scope.nota=nota;
-					$rootScope.action={view:"Ver notas"}
+					$rootScope.action.create="Crear nota";
+					$rootScope.action.view="Ver notas";
+					if($routeParams.id){
+						$rootScope.action.edit=true;
+					}
 				});
 		}
 
@@ -25,12 +31,11 @@
 		}
 
 		$scope.clear_model= function(){
+			$scope.nota = null;
 			console.log($scope.nota);
-
 		}
 
 		$scope.paginate= function(pagina){
-			$scope.notas = {};			
 			PaginateFactory.paginate($scope, pagina);
 		}
 	}
