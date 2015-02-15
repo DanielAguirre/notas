@@ -4,6 +4,14 @@
 		var resource = $resource('/api/notas/:id',{id:'@id'}, 
 			{'update': { method:'PUT' } }
          );
+
+		this.creat_note = function(nota,callback){
+			resource
+				.save(nota)
+				.$promise.then(function(data){
+					callback( data.notas);
+				});
+		}
 		
 		this.getAll = function(callback){
 			resource

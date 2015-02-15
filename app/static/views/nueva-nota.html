@@ -9,7 +9,7 @@
 	<textarea name="" id="body" cols="30" rows="10" ng-model = 'nota.body'>{$ nota.body $}</textarea>
 	<button ng-if=action.edit class="btn btn-primary" ng-click="update_note()">Editar</button>	
 	<div class="buttons-section" ng-if=!action.edit>
-		<button  class="btn btn-primary">Crear</button>
+		<button  class="btn btn-primary" ng-click="creat_note()">Crear</button>
 		<div  class="btn " ng-click="clear_model()">Limpiar</div>
 	</div>
 </form>

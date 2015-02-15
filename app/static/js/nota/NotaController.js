@@ -3,6 +3,10 @@
 
 		$rootScope.action = {};
 
+		$scope.creat_note = function(){
+			NotaService.creat_note({nota:$scope.nota}, function(nota){});
+		}
+
 		$scope.getAll = function(){
 			NotaService
 				.getAll(function(notas){				
@@ -42,7 +46,8 @@
 		$scope.paginate= function(pagina){
 			PaginateFactory.paginate($scope, pagina);
 		};
-	}
+
+	};
 
 	angular
 		.module('notas.controller',[])
