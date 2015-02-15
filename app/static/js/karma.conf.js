@@ -20,7 +20,7 @@ module.exports = function(config) {
         'vendors/angular-resource.js',
         'app.js',
         'nota/*.js',
-        'test/*.js'
+        'test/controllerSpec.js'
     ],
 
 

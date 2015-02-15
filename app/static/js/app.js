@@ -28,5 +28,8 @@
                     templateUrl:'views/nueva-nota.html',
                     controller: 'NotaController',
                 })
+                .otherwise({
+                    redirectTo: '/'
+                });
 		}]);
 }());

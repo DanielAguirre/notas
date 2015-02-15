@@ -2,5 +2,8 @@
 	<p><span>Titulo: </span> {$ nota.title $}</p>
 	<p><span>Descripcion: </span>{$ nota.description$}</p>
 	<p><span>Tipo: </span> {$nota.type$}</p>
-	<p><span>Descripcion: </span> {$nota.description}</p>
+	<p><span>Descripcion: </span> {$nota.description $}</p>
+	<div class="buttons-section" >
+		<a href='#/editar/{$nota._id$}' class='btn btn-primary btn--small'>Editar</a>
+	</div>
 </div>

@@ -4,11 +4,12 @@
 		<td>{$ nota.title $} hola</td>
 		<td>{$ nota.description $}</td>		
 		<td>
-			<a href='#/editar/{$nota._id$}' class='btn btn-primary'>Editar</a>
-			<button ng-click="delete(nota._id)" class="btn btn-warning">Eliminar</button>
+			<a href='#/nota/{$nota._id$}' class='btn btn--default btn--small'>Ver</a>
+			<a href='#/editar/{$nota._id$}' class='btn btn-primary btn--small'>Editar</a>
+			<button ng-click="delete(nota._id)" class="btn btn-warning btn--small">Eliminar</button>
 		</td>
 	</tr>
 </table>
 <div class="buttons-section">
-	<button class="btn" ng-click="paginate(pagina)">Ver mas</button>
+	<button class="btn btn--default btn--small" ng-click="paginate(pagina)">Ver mas</button>
 </div>
