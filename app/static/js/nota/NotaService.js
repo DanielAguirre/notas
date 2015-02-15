@@ -9,7 +9,7 @@
 			resource
 				.save(nota)
 				.$promise.then(function(data){
-					callback( data.notas);
+					callback( data);
 				});
 		}
 		

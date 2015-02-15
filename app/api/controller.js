@@ -16,23 +16,21 @@ ApiController.save = function(req,res) {
 		.status(201)
 		.set('Content-Type','application/json')
 		.json({nota:data})
-	})
-}
+	});
+};
 
 ApiController.get = function(req,res, next) {
 	var id = req.params.id
-	modelNota.find(id,function(data){
-		
+	modelNota.find(id,function(data){		
 		if(!data){
 			return res
-					.status(400)
-					.send();
+				.status(400)
+				.send();
 		}
-
 		res.
 			json({nota:data})
-	})
-}
+	});
+};
 
 ApiController.update = function(req,res) {
 	var id = req.params.id;
@@ -40,15 +38,16 @@ ApiController.update = function(req,res) {
 	modelNota.update(id,nota,function(data){
 		res
 			.json({nota:nota})
-	})
-}
+	});
+};
+
 ApiController.delete = function(req,res){
 	var id = req.params.id;
 	modelNota.delete(id, function(){
 		res
 			.status(204)
 			.send();
-	})
-}
+	});
+};
 
 module.exports = ApiController;

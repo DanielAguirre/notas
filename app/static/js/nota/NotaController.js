@@ -1,10 +1,18 @@
 (function(){
-	var NotaController = function($scope,$rootScope,$route, $routeParams, NotaService, PaginateFactory) {	
+	var NotaController = function($scope,$rootScope, $routeParams,$location, NotaService, PaginateFactory) {	
 
 		$rootScope.action = {};
+		$rootScope.hide_form = false;
 
 		$scope.creat_note = function(){
-			NotaService.creat_note({nota:$scope.nota}, function(nota){});
+			NotaService.creat_note({nota:$scope.nota}, function(data) {
+				if(data){
+					$rootScope.hide_form = true;
+					$location.path('/nota/'+data.nota._id);
+					$scope.nota = data.nota;
+					console.log($scope.nota);
+				}
+			});
 		}
 
 		$scope.getAll = function(){
@@ -51,5 +59,5 @@
 
 	angular
 		.module('notas.controller',[])
-		.controller('NotaController',['$scope','$rootScope','$route','$routeParams','NotaService','PaginateFactory',NotaController]);
+		.controller('NotaController',['$scope','$rootScope','$routeParams','$location','NotaService','PaginateFactory',NotaController]);
 }())

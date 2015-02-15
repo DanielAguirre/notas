@@ -4,6 +4,21 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body ng-cloak>
+	<header>
+		<h1>Notas</h1>
+		<div>
+			<a href="#/nueva" ng-if="action.create">{$ action.create $}</a>
+			<a href="#/" ng-if="action.view">{$ action.view $}
+		</a>
+		</div>
+	</header>
+	<section class="container">
+		{% block content%} {%endblock%}
+	</section>
+
 	<script src="js/vendors/angular.js"></script>
 	<script src="js/vendors/angular-animate.js"></script>
 	<script src="js/vendors/angular-route.js"></script>
@@ -14,20 +29,5 @@
 	<script src='js/nota/NotaService.js'></script>
 	<script src='js/nota/NotaDirective.js'></script>
 	<script src="js/nota/PaginateFactory.js"></script>
-
-</head>
-<body>
-	<header>
-		<h1>Notas</h1>
-		<div>
-			<a href="#/nueva" ng-if="action.create">{$ action.create $}</a>
-			<a href="#/" ng-if="action.view">{$ action.view $}
-		</a>
-		</div>
-	</header>
-	<section class="container">
-	 	<input type="hidden" name="_csrf" value="	{{csrfToken}}">
-		{% block content%} {%endblock%}
-	</section>
 </body>
 </html>

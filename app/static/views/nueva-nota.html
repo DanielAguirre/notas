@@ -1,4 +1,4 @@
-<form ng-init="getNote()">
+<form ng-init="getNote()" ng-hide="hide_form">
 	<label for="title">Titulo</label>
 	<input type="text" id="title" placeholder='Titulo' ng-model = 'nota.title' value='{$ nota.title $}' >	
 	<label for="description">Descripcion</label>

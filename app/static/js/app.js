@@ -15,6 +15,11 @@
     				templateUrl:'views/notas.html',
     				controller: 'NotaController',                    
     			})
+                .when('/nota/:id',{
+                    templateUrl:'views/detail-note.html',
+                    controller: 'NotaController',
+                    resolve :{}
+                })
                 .when('/nueva',{
                     templateUrl:'views/nueva-nota.html',
                     controller: 'NotaController',
