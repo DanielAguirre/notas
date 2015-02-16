@@ -39,9 +39,7 @@
 		this.delete = function(id){
 			resource
 				.remove({id:id})
-				.$promise.then(function(data){
-					console.log("delete",data);
-				})
+				.$promise.then(function(data){});
 		}
 	}
 

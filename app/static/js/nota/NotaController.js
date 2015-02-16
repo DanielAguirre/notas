@@ -43,8 +43,10 @@
 			NotaService.updateNote($scope.nota,function(nota){});
 		};
 
-		$scope.delete = function(id){
-			NotaService.delete(id);
+		$scope.delete = function(id) {
+			if(confirm("¿Esta Seguro que desea eliminar esta nota?")){
+				NotaService.delete(id);
+			}
 		};
 
 		$scope.clear_model= function(){

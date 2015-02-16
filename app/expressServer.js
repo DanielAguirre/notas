@@ -14,7 +14,6 @@ var ExpressServer = function(){
 	this.expressServer.use(bodyParser.json());
 
 	for(var middleware in middlewares) {
-		console.log(middleware);
 		this.expressServer.use(middlewares[middleware])
 	}
 

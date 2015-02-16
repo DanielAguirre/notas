@@ -7,3 +7,10 @@ flexbox()
 	display -moz-flex
 	display -ms-flexbox
 	display flex
+
+vendor($property, $value...)
+	-webkit-{$property} $value
+	-moz-{$property} $value
+	-ms-{$property} $value
+	-o-{$property} $value
+	{$property} $value

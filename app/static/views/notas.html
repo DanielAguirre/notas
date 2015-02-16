@@ -2,7 +2,7 @@
 <table ng-init="getAll()">
 	<tr ng-repeat='nota in notas'>	
 		<td>{$ nota.title $} hola</td>
-		<td>{$ nota.description $}</td>		
+		<td class="description">{$ nota.description $}</td>		
 		<td>
 			<a href='#/nota/{$nota._id$}' class='btn btn--default btn--small'>Ver</a>
 			<a href='#/editar/{$nota._id$}' class='btn btn-primary btn--small'>Editar</a>

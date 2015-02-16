@@ -1,6 +1,7 @@
 body
 	background body--color
-	
+	font-size 16px
+		
 h1,h2,h3,h4,h5,h6
 	color title--color
 	
@@ -15,11 +16,10 @@ header
 	h1
 		margin 0
 	a
-		text-decoration none
 		&:visited
 			color white
 
-section.container
+.container
 	position: relative;
 	top: -80px;
 	margin 0 15%
@@ -37,8 +37,8 @@ section.container
 	table,
 	form,
 	.details
-		margin 0 11%
-		width 70%
+		margin 5% 11%
+		width 78%
 		
 	table
 		height: 1100px;
@@ -47,7 +47,6 @@ section.container
 			border-bottom 1px solid #eee
 			.btn
 				padding 6px
-				text-decoration none
 				&:hover
 					shadow()
 	form		
@@ -82,3 +81,44 @@ section.container
 	
 	.btn--default
 		color button--primary-color		
+		
+@media screen and (max-width: 1070px)
+	.container
+		table
+			margin 5% 7%
+			width 86%
+
+			.btn
+				font-family 'icomoon'
+				font-size 0
+				border-radius 50%
+				width 48px
+				height 48px
+				&:before
+					font-size 1rem
+			.btn--default
+				&:before
+					content "\e601"
+					
+			.btn-primary
+				&:before
+					content "\e602"
+					
+			.btn-warning
+				&:before
+					content "\e600"					
+
+
+
+@media screen and (max-width: 830px)
+	.container
+		margin 0
+		width 100%
+		
+@media screen and (max-width: 630px)
+	.container
+		table
+			margin 5%
+			width 90%			
+	.description
+		display none
