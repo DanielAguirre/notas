@@ -1,7 +1,6 @@
 var HomeController = function(){}
 
-HomeController.index = function(req, res){
-	res.locals._csrf = req.csrfToken();
+HomeController.index = function(req, res){	
 	res.render('index',{});
 }
 
